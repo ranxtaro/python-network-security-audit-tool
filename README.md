@@ -37,6 +37,3 @@ docs/           Project documentation
 
 Mykyta Bradul
 Entry-Level IT Specialist | Computer Systems & Networks | Python
-
-Mykyta Bradul
-Entry-Level IT Specialist | Computer Systems & Networks | Python
