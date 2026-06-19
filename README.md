@@ -33,8 +33,11 @@ screenshots/    Application screenshots
 docs/           Project documentation
 
 
+## Academic Context
+
 This project was developed as a final diploma project for the Computer Systems and Networks speciality.
 
+## Author
 
 Mykyta Bradul
 Entry-Level IT Specialist | Computer Systems & Networks | Python
