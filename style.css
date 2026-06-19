@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f8;
+    font-family: Arial, sans-serif;
+    color: #222222;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.page-header {
+    margin-bottom: 20px;
+}
+
+.page-header h1 {
+    color: #1f4e79;
+    margin: 0;
+}
+
+.info-card,
+.host-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.host-card h2 {
+    margin-top: 0;
+    color: #2e75b6;
+}
+
+.label {
+    font-weight: bold;
+}
+
+.risk {
+    margin-top: 12px;
+    padding: 12px;
+    border-left: 5px solid #d9534f;
+    background-color: #fff1f1;
+    border-radius: 8px;
+}
+
+.no-risk {
+    margin-top: 12px;
+    padding: 12px;
+    border-left: 5px solid #5cb85c;
+    background-color: #f1fff1;
+    border-radius: 8px;
+}
+
+ul {
+    margin: 10px 0 0 20px;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+.filter-select {
+    margin-left: 10px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    font-size: 14px;
+}
+
+.filter-info {
+    margin-top: 12px;
+    color: #444444;
+}

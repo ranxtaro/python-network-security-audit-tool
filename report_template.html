@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Звіт з аудиту безпеки мережі</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <h1>Звіт з аудиту безпеки мережі</h1>
+        </header>
+
+        <section class="info-card">
+            <p><span class="label">Час сканування:</span> __SCAN_TIME__</p>
+            <p><span class="label">Мережа:</span> __NETWORK__</p>
+            <p><span class="label">Кількість активних вузлів:</span> __ACTIVE_HOSTS_COUNT__</p>
+        </section>
+
+        <section class="info-card">
+            <h2>Фільтр відображення вузлів</h2>
+            <label for="hostFilter" class="label">Показувати:</label>
+            <select id="hostFilter" class="filter-select" onchange="filterHosts()">
+                <option value="all">Усі вузли</option>
+                <option value="with_risks">Лише з ризиками</option>
+                <option value="without_risks">Лише без ризиків</option>
+            </select>
+            <p id="filterInfo" class="filter-info">Відображено всі вузли.</p>
+        </section>
+
+        <div id="hostsContainer">
+            __HOSTS_HTML__
+        </div>
+    </div>
+
+    <script>
+        function filterHosts() {
+            const filterValue = document.getElementById("hostFilter").value;
+            const hostCards = document.querySelectorAll(".host-card");
+            const filterInfo = document.getElementById("filterInfo");
+
+            let visibleCount = 0;
+
+            hostCards.forEach(card => {
+                const hasRisk = card.getAttribute("data-risk");
+
+                let shouldShow = true;
+
+                if (filterValue === "with_risks") {
+                    shouldShow = hasRisk === "yes";
+                } else if (filterValue === "without_risks") {
+                    shouldShow = hasRisk === "no";
+                }
+
+                card.style.display = shouldShow ? "block" : "none";
+
+                if (shouldShow) {
+                    visibleCount += 1;
+                }
+            });
+
+            if (filterValue === "with_risks") {
+                filterInfo.textContent = `Відображено вузлів з ризиками: ${visibleCount}`;
+            } else if (filterValue === "without_risks") {
+                filterInfo.textContent = `Відображено вузлів без ризиків: ${visibleCount}`;
+            } else {
+                filterInfo.textContent = `Відображено всі вузли: ${visibleCount}`;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            filterHosts();
+        });
+    </script>
+</body>
+</html>
